@@ -25,8 +25,6 @@
   const quizPlayAgainBtn = document.getElementById("quiz-play-again-btn");
   const quizChangeTopicBtn = document.getElementById("quiz-change-topic-btn");
 
-  Mentor.render("zoe-avatar-slot", "smile", 64);
-
   let categories = [];
   let mode = "study";
   let currentCategory = null;

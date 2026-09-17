@@ -1,25 +1,62 @@
+/* ============================================================
+   Teacher Zoe - design tokens
+   Palette pulled directly from Zoe's own portrait (amber backdrop,
+   espresso hair, ivory sweater, warm terracotta blush) so the whole
+   site reads as one crafted world around her, not a generic kids-app
+   template.
+   ============================================================ */
 :root {
-  --gold: #FFC94A;
-  --gold-deep: #E8A93A;
-  --cream: #FFF8EC;
-  --cream-card: #FFFFFF;
-  --brown-text: #4A3728;
-  --brown-soft: #7A6656;
-  --teal: #2FA9A1;
-  --teal-deep: #1F857E;
-  --coral: #F4967A;
-  --shadow: 0 6px 18px rgba(74, 55, 40, 0.12);
+  --ink: #3B2A22;           /* espresso - primary text, from her hair */
+  --ink-soft: #8A7460;      /* warm taupe - secondary text */
+  --canvas: #FFF9F0;        /* ivory - from her sweater */
+  --card: #FFFFFF;
+  --card-border: #F1E3C8;   /* hairline warm border, keeps white cards off the ivory canvas */
+
+  --amber: #F5A623;         /* signature - from the portrait backdrop */
+  --amber-deep: #C97F1D;
+  --amber-soft: #FCE7BC;    /* tint for icon chips / badges */
+
+  --teal: #1B6B67;          /* primary action color - mic, CTAs */
+  --teal-deep: #124E4B;
+  --teal-soft: #DCEFEC;
+
+  --terracotta: #E8795A;    /* encouragement / streaks / warmth, from her blush */
+  --terracotta-soft: #FBE3DA;
+
+  --gold-line: #C89B3C;     /* fine metallic accent, from her earrings */
+
+  /* legacy aliases kept so older markup/inline-styles keep working */
+  --brown-text: var(--ink);
+  --brown-soft: var(--ink-soft);
+  --cream: var(--canvas);
+  --cream-card: var(--card);
+  --gold: var(--amber);
+  --gold-deep: var(--amber-deep);
+  --coral: var(--terracotta);
+
+  --font-display: "Suez One", "Rubik", sans-serif;
+  --font-body: "Rubik", "Segoe UI", Arial, sans-serif;
+
+  --shadow-sm: 0 2px 6px rgba(59, 42, 34, 0.08);
+  --shadow: 0 3px 8px rgba(59, 42, 34, 0.06), 0 10px 24px rgba(197, 138, 43, 0.14);
+  --shadow-lift: 0 6px 14px rgba(59, 42, 34, 0.10), 0 16px 34px rgba(197, 138, 43, 0.18);
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: "Segoe UI", "Varela Round", Arial, sans-serif;
-  background: linear-gradient(180deg, #FFF8EC 0%, #FFEFD1 100%);
-  color: var(--brown-text);
+  font-family: var(--font-body);
+  background: var(--canvas);
+  color: var(--ink);
   direction: rtl;
   min-height: 100vh;
+}
+
+h1, h2, .quiz-prompt, .finish-title, #finish-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.2px;
 }
 
 .wrap {
@@ -36,30 +73,125 @@ header.top-bar {
 }
 
 header.top-bar h1 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin: 0;
 }
 
 header.top-bar p {
   margin: 2px 0 0;
-  color: var(--brown-soft);
+  color: var(--ink-soft);
   font-size: 0.9rem;
 }
 
-.zoe-avatar { display: block; border-radius: 50%; box-shadow: var(--shadow); flex-shrink: 0; }
+.zoe-avatar {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--amber-soft);
+  box-shadow: var(--shadow);
+  border: 3px solid #fff;
+  outline: 2px solid var(--amber);
+  flex-shrink: 0;
+}
+
+/* ---------------- Dashboard hero ---------------- */
+.hero-header {
+  position: relative;
+  border-radius: 26px;
+  padding: 26px 22px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 140% at 100% -10%, rgba(245, 166, 35, 0.35), transparent 60%),
+    linear-gradient(160deg, #FFF3DC 0%, var(--canvas) 65%);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+}
+
+.hero-header .path-swoosh {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.hero-header .hero-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-header .zoe-avatar { width: 84px; height: 84px; }
+
+.hero-header h1 {
+  font-size: 1.55rem;
+  margin: 0;
+  color: var(--ink);
+}
+
+.hero-header p {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.points-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+}
+
+.stats-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.stat-tile {
+  flex: 1;
+  min-width: 100px;
+  text-align: center;
+  padding: 14px 10px;
+  margin: 0;
+}
+
+.stat-tile .stat-icon { font-size: 1.3rem; }
+.stat-tile .stat-value { font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); }
+.stat-tile .stat-label { font-size: 0.72rem; color: var(--ink-soft); margin-top: 2px; }
 
 .card {
-  background: var(--cream-card);
+  background: var(--card);
+  border: 1px solid var(--card-border);
   border-radius: 20px;
   box-shadow: var(--shadow);
   padding: 18px 20px;
   margin-bottom: 16px;
 }
 
+.section-label {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 4px 4px 10px;
+}
+
 .module-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 12px;
 }
 
 .module-card {
@@ -67,15 +199,28 @@ header.top-bar p {
   align-items: center;
   gap: 14px;
   text-decoration: none;
-  color: var(--brown-text);
-  background: var(--cream-card);
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--card-border);
   border-radius: 20px;
   padding: 16px 18px;
   box-shadow: var(--shadow);
-  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .module-card:active { transform: scale(0.98); }
+
+.module-card.featured {
+  background: linear-gradient(135deg, #FFFDF8 0%, var(--amber-soft) 140%);
+  border-color: #EAD6A0;
+  padding: 20px;
+}
+
+.module-card.featured .module-icon {
+  width: 60px;
+  height: 60px;
+  font-size: 1.9rem;
+}
 
 .module-icon {
   width: 52px;
@@ -86,18 +231,19 @@ header.top-bar p {
   justify-content: center;
   font-size: 1.6rem;
   flex-shrink: 0;
+  box-shadow: inset 0 0 0 1px rgba(59, 42, 34, 0.04);
 }
 
-.module-icon.speaking { background: #FDEAE3; }
-.module-icon.vocab { background: #FFF3D6; }
-.module-icon.reading { background: #E4F5F3; }
+.module-icon.speaking { background: var(--terracotta-soft); }
+.module-icon.vocab { background: var(--amber-soft); }
+.module-icon.reading { background: var(--teal-soft); }
 
-.module-card h2 { margin: 0 0 2px; font-size: 1.05rem; }
-.module-card p { margin: 0; font-size: 0.85rem; color: var(--brown-soft); }
+.module-card h2 { margin: 0 0 2px; font-size: 1.08rem; font-family: var(--font-display); font-weight: 400; }
+.module-card p { margin: 0; font-size: 0.85rem; color: var(--ink-soft); }
 
 .badge-new {
   margin-inline-start: auto;
-  background: var(--teal);
+  background: var(--terracotta);
   color: white;
   font-size: 0.72rem;
   padding: 3px 9px;
@@ -113,21 +259,24 @@ header.top-bar p {
   border: none;
   border-radius: 999px;
   padding: 12px 24px;
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
+.btn:active { transform: translateY(1px); box-shadow: none; }
 
-.btn-primary { background: var(--teal); color: white; }
-.btn-primary:active { background: var(--teal-deep); }
+.btn-primary { background: var(--teal); color: white; box-shadow: 0 4px 0 var(--teal-deep), var(--shadow-sm); }
+.btn-primary:active { background: var(--teal); transform: translateY(3px); box-shadow: 0 1px 0 var(--teal-deep); }
 
-.btn-secondary { background: var(--gold); color: var(--brown-text); }
+.btn-secondary { background: var(--amber-soft); color: var(--ink); border: 1px solid #EAD6A0; }
 
 a.back-link {
   display: inline-block;
   margin-bottom: 14px;
-  color: var(--brown-soft);
+  color: var(--ink-soft);
   text-decoration: none;
   font-size: 0.9rem;
 }
@@ -141,20 +290,22 @@ a.back-link {
   background: var(--teal);
   color: white;
   font-size: 2rem;
-  box-shadow: 0 8px 22px rgba(47, 169, 161, 0.4);
+  box-shadow: 0 6px 0 var(--teal-deep), 0 10px 26px rgba(27, 107, 103, 0.35);
   cursor: pointer;
   transition: transform 0.15s ease, background 0.2s ease;
 }
+.mic-button:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--teal-deep); }
 
 .mic-button.listening {
-  background: var(--coral);
+  background: var(--terracotta);
+  box-shadow: 0 6px 0 #C15A3D, 0 10px 26px rgba(232, 121, 90, 0.4);
   animation: pulse 1.2s infinite;
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(244, 150, 122, 0.5); }
-  70% { box-shadow: 0 0 0 20px rgba(244, 150, 122, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(244, 150, 122, 0); }
+  0% { box-shadow: 0 6px 0 #C15A3D, 0 0 0 0 rgba(232, 121, 90, 0.5); }
+  70% { box-shadow: 0 6px 0 #C15A3D, 0 0 0 20px rgba(232, 121, 90, 0); }
+  100% { box-shadow: 0 6px 0 #C15A3D, 0 0 0 0 rgba(232, 121, 90, 0); }
 }
 
 .chat-log {
@@ -173,7 +324,7 @@ a.back-link {
 }
 
 .bubble.zoe {
-  background: #FFF3D6;
+  background: var(--amber-soft);
   align-self: flex-start;
   border-bottom-left-radius: 4px;
   direction: ltr;
@@ -182,7 +333,7 @@ a.back-link {
 
 .bubble.hint {
   background: transparent;
-  color: var(--brown-soft);
+  color: var(--ink-soft);
   font-size: 0.82rem;
   align-self: flex-start;
   padding: 0 16px;
@@ -218,7 +369,7 @@ a.back-link {
 .status-line {
   min-height: 22px;
   font-size: 0.9rem;
-  color: var(--brown-soft);
+  color: var(--ink-soft);
   margin-top: 10px;
 }
 
@@ -230,21 +381,23 @@ a.back-link {
 }
 
 .category-chip {
-  border: 2px solid var(--gold);
-  background: var(--cream-card);
+  border: 1.5px solid var(--card-border);
+  background: var(--card);
   border-radius: 999px;
   padding: 8px 14px;
   font-size: 0.88rem;
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s ease, background 0.15s ease;
 }
 
-.category-chip.active {
-  background: var(--gold);
-}
+.category-chip:hover { border-color: var(--amber); }
+.category-chip.active { background: var(--amber-soft); border-color: var(--amber); }
 
 /* Vocab flashcards */
 .flashcard {
-  background: var(--cream-card);
+  background: var(--card);
+  border: 1px solid var(--card-border);
   border-radius: 20px;
   box-shadow: var(--shadow);
   padding: 28px 20px;
@@ -258,10 +411,10 @@ a.back-link {
   gap: 8px;
 }
 
-.flashcard .word { font-size: 1.8rem; font-weight: 700; direction: ltr; }
-.flashcard .example { font-size: 0.95rem; color: var(--brown-soft); direction: ltr; }
-.flashcard .translation { font-size: 1.2rem; color: var(--teal-deep); font-weight: 600; }
-.flashcard .hint { font-size: 0.8rem; color: var(--brown-soft); margin-top: 8px; }
+.flashcard .word { font-size: 1.9rem; font-weight: 700; font-family: var(--font-display); direction: ltr; }
+.flashcard .example { font-size: 0.95rem; color: var(--ink-soft); direction: ltr; }
+.flashcard .translation { font-size: 1.25rem; color: var(--teal-deep); font-weight: 700; font-family: var(--font-display); }
+.flashcard .hint { font-size: 0.8rem; color: var(--ink-soft); margin-top: 8px; }
 
 .card-nav {
   display: flex;
@@ -273,7 +426,7 @@ a.back-link {
 /* Reading */
 .passage-text {
   font-size: 1.05rem;
-  line-height: 1.7;
+  line-height: 1.75;
   direction: ltr;
   text-align: left;
 }
@@ -281,31 +434,10 @@ a.back-link {
 .question-block {
   margin-top: 14px;
   padding-top: 14px;
-  border-top: 1px dashed #E7D9BE;
+  border-top: 1px dashed var(--card-border);
 }
 
 .question-block p.q { font-weight: 600; direction: ltr; text-align: left; margin-bottom: 6px; }
-
-/* Points pill */
-.points-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--gold);
-  color: var(--brown-text);
-  font-weight: 700;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  box-shadow: var(--shadow);
-}
-
-.stats-row {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 16px;
-}
 
 /* Reading trail map */
 .trail {
@@ -322,7 +454,7 @@ a.back-link {
   width: 4px;
   transform: translateX(-50%);
   background: repeating-linear-gradient(
-    to bottom, var(--gold-deep) 0 10px, transparent 10px 20px
+    to bottom, var(--amber) 0 10px, transparent 10px 20px
   );
   border-radius: 4px;
 }
@@ -346,13 +478,13 @@ a.back-link {
   height: 62px;
   min-width: 62px;
   border-radius: 50%;
-  background: var(--cream-card);
+  background: var(--card);
   box-shadow: var(--shadow);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.6rem;
-  border: 3px solid var(--gold);
+  border: 3px solid var(--amber);
   cursor: pointer;
   position: relative;
 }
@@ -376,10 +508,11 @@ a.back-link {
 }
 
 .station-label {
-  background: var(--cream-card);
+  background: var(--card);
+  border: 1px solid var(--card-border);
   padding: 8px 14px;
   border-radius: 14px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-sm);
   font-size: 0.85rem;
   max-width: 140px;
 }
@@ -387,11 +520,11 @@ a.back-link {
 .station-label .lvl {
   display: block;
   font-size: 0.72rem;
-  color: var(--brown-soft);
+  color: var(--ink-soft);
   margin-top: 2px;
 }
 
-/* Quiz game (vocab) */
+/* Quiz game (vocab + reading) */
 .mode-toggle {
   display: flex;
   gap: 8px;
@@ -400,15 +533,16 @@ a.back-link {
 
 .mode-toggle button {
   flex: 1;
-  border: 2px solid var(--gold);
-  background: var(--cream-card);
+  border: 1.5px solid var(--card-border);
+  background: var(--card);
   border-radius: 14px;
   padding: 10px;
+  font-family: var(--font-body);
   font-weight: 600;
   cursor: pointer;
 }
 
-.mode-toggle button.active { background: var(--gold); }
+.mode-toggle button.active { background: var(--amber-soft); border-color: var(--amber); }
 
 .quiz-header {
   display: flex;
@@ -416,13 +550,12 @@ a.back-link {
   align-items: center;
   margin-bottom: 12px;
   font-size: 0.9rem;
-  color: var(--brown-soft);
+  color: var(--ink-soft);
 }
 
 .quiz-prompt {
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.6rem;
   padding: 22px 10px;
   direction: ltr;
 }
@@ -434,10 +567,11 @@ a.back-link {
 }
 
 .quiz-choice {
-  border: 2px solid var(--gold);
-  background: var(--cream-card);
+  border: 1.5px solid var(--card-border);
+  background: var(--card);
   border-radius: 14px;
   padding: 14px;
+  font-family: var(--font-body);
   font-size: 1rem;
   cursor: pointer;
   direction: rtl;
@@ -445,12 +579,12 @@ a.back-link {
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 
-.quiz-choice.correct { background: #DDF3E4; border-color: #4CAF7D; }
-.quiz-choice.wrong { background: #FBE3DE; border-color: var(--coral); }
+.quiz-choice.correct { background: #E3F3E7; border-color: #4CAF7D; }
+.quiz-choice.wrong { background: var(--terracotta-soft); border-color: var(--terracotta); }
 .quiz-choice[disabled] { cursor: default; }
 
 .streak-badge {
-  background: var(--coral);
+  background: var(--terracotta);
   color: white;
   border-radius: 999px;
   padding: 4px 10px;
@@ -460,5 +594,7 @@ a.back-link {
 @media (max-width: 420px) {
   .wrap { padding: 14px 10px 50px; }
   .station-label { max-width: 110px; font-size: 0.78rem; }
-  .quiz-prompt { font-size: 1.25rem; }
+  .quiz-prompt { font-size: 1.3rem; }
+  .hero-header .zoe-avatar { width: 68px; height: 68px; }
+  .hero-header h1 { font-size: 1.3rem; }
 }

@@ -16,8 +16,6 @@
   let recognition = null;
   let isListening = false;
 
-  Mentor.render("zoe-avatar-slot", "smile", 64);
-
   function getTurns() {
     return parseInt(localStorage.getItem(TURNS_KEY) || "0", 10);
   }

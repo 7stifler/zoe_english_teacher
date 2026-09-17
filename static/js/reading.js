@@ -22,8 +22,6 @@
   const finishPoints = document.getElementById("finish-points");
   const finishBackBtn = document.getElementById("finish-back-btn");
 
-  Mentor.render("zoe-avatar-slot", "smile", 64);
-
   let passages = [];
   let currentPassage = null;
   let qIndex = 0;
