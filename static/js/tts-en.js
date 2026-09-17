@@ -8,6 +8,13 @@ const ZoeTTS = (() => {
   let currentAudio = null;
   const cache = new Map(); // text -> object URL, avoids re-fetching repeats in one session
 
+  // Drives the "Zoe is talking" visual (pulsing glow + sound-wave badge on her
+  // avatar) via a body class, so any page just needs the right markup/CSS -
+  // no per-page wiring needed.
+  function setSpeaking(isSpeaking) {
+    document.body.classList.toggle("zoe-is-speaking", isSpeaking);
+  }
+
   async function speak(text) {
     if (!text) return;
     if (currentAudio) {
@@ -28,6 +35,9 @@ const ZoeTTS = (() => {
         cache.set(text, url);
       }
       currentAudio = new Audio(url);
+      currentAudio.addEventListener("ended", () => setSpeaking(false));
+      currentAudio.addEventListener("pause", () => setSpeaking(false));
+      setSpeaking(true);
       await currentAudio.play();
     } catch (err) {
       console.warn("ZoeTTS: falling back to browser voice", err);
@@ -42,6 +52,9 @@ const ZoeTTS = (() => {
     const utter = new SpeechSynthesisUtterance(text);
     utter.lang = "en-US";
     utter.rate = 0.92;
+    utter.onstart = () => setSpeaking(true);
+    utter.onend = () => setSpeaking(false);
+    utter.onerror = () => setSpeaking(false);
     window.speechSynthesis.speak(utter);
   }
 
@@ -51,6 +64,7 @@ const ZoeTTS = (() => {
       currentAudio = null;
     }
     if (window.speechSynthesis) window.speechSynthesis.cancel();
+    setSpeaking(false);
   }
 
   return { speak, stop };
