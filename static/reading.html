@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>קריאה - Teacher Zoe</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">‹ חזרה לדשבורד</a>
+
+  <header class="top-bar">
+    <div id="zoe-avatar-slot"></div>
+    <div>
+      <h1 style="font-size:1.15rem;">מסלול הקריאה</h1>
+      <p>כל תחנה פותחת את הבאה</p>
+    </div>
+    <span class="points-pill" id="points-pill" style="margin-inline-start:auto;">⭐ 0</span>
+  </header>
+
+  <!-- Trail map view -->
+  <div id="trail-view">
+    <div class="trail" id="trail"></div>
+  </div>
+
+  <!-- Passage + quiz view -->
+  <div id="passage-view" class="card" style="display:none;">
+    <a class="back-link" href="#" id="back-to-trail">‹ חזרה למסלול</a>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+      <h2 id="passage-title" style="margin:0;"></h2>
+      <button class="btn btn-secondary" id="speak-passage-btn">🔊 הקראה</button>
+    </div>
+    <p class="passage-text" id="passage-text"></p>
+    <div style="text-align:center;margin-top:16px;">
+      <button class="btn btn-primary" id="start-quiz-btn">בואי נבדוק הבנה ✏️</button>
+    </div>
+  </div>
+
+  <!-- Quiz view -->
+  <div id="quiz-view" class="card" style="display:none;">
+    <div class="quiz-header">
+      <span id="quiz-progress"></span>
+      <span id="quiz-score"></span>
+    </div>
+    <div class="quiz-prompt" id="quiz-prompt" style="direction:rtl;"></div>
+    <div class="quiz-choices" id="quiz-choices"></div>
+    <div style="text-align:center;margin-top:16px;">
+      <button class="btn btn-secondary" id="next-question-btn" style="display:none;">הבא ›</button>
+    </div>
+  </div>
+
+  <!-- Finish view -->
+  <div id="finish-view" class="card" style="display:none;text-align:center;">
+    <div style="font-size:3rem;">🎉</div>
+    <h2 id="finish-title">כל הכבוד!</h2>
+    <p id="finish-stars" style="font-size:1.8rem;"></p>
+    <p id="finish-points"></p>
+    <button class="btn btn-primary" id="finish-back-btn">חזרה למסלול</button>
+  </div>
+</div>
+
+<script src="js/mentor.js"></script>
+<script src="js/tts-en.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/reading.js"></script>
+</body>
+</html>

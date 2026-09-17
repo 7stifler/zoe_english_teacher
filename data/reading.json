@@ -1,0 +1,108 @@
+{
+  "passages": [
+    {
+      "id": "r1",
+      "title": "My Family",
+      "level": "A1",
+      "icon": "👪",
+      "relatedCategory": "family",
+      "text": "Hi! My name is Noa. I live with my mother, my father, and my little brother. My grandmother visits us every Friday. She always brings cookies, and I feel so happy when I see her. My best friend lives next door. We play together after school almost every day. I am very proud of my family.",
+      "questions": [
+        { "q": "Who visits every Friday?", "choices": ["The grandmother", "The teacher", "The neighbor"], "correctIndex": 0 },
+        { "q": "What does the grandmother bring?", "choices": ["Flowers", "Cookies", "Books"], "correctIndex": 1 },
+        { "q": "Where does the best friend live?", "choices": ["Far away", "At school", "Next door"], "correctIndex": 2 }
+      ]
+    },
+    {
+      "id": "r2",
+      "title": "A Day at School",
+      "level": "A1",
+      "icon": "🎒",
+      "relatedCategory": "school",
+      "text": "Every morning I wake up, brush my teeth, and get dressed. I usually walk to school with my classmate. My teacher is kind and helpful, and she never gets angry when we make a mistake. At recess, I play with my friends in the yard. I never forget my homework. Today we have a test, but I feel confident because I practiced every day this week.",
+      "questions": [
+        { "q": "How does she go to school?", "choices": ["By bus", "She walks", "By bike"], "correctIndex": 1 },
+        { "q": "What happens at recess?", "choices": ["She plays with friends", "She does homework", "She sleeps"], "correctIndex": 0 },
+        { "q": "Why does she feel confident about the test?", "choices": ["It's easy", "Because she practiced", "Her friend told her the answers"], "correctIndex": 1 }
+      ]
+    },
+    {
+      "id": "r3",
+      "title": "My Best Friend",
+      "level": "A1",
+      "icon": "🤝",
+      "relatedCategory": "family",
+      "text": "My best friend's name is Maya. We are in the same class, and we sit together every day. Maya is very funny, and she always makes me laugh. When I feel nervous, she helps me feel brave. We collect stickers together, and we love to draw pictures of animals. On weekends, we sometimes have a sleepover at my house or at hers.",
+      "questions": [
+        { "q": "What does Maya do that makes the writer happy?", "choices": ["She makes her laugh", "She gives her homework", "She sings songs"], "correctIndex": 0 },
+        { "q": "What do they collect together?", "choices": ["Coins", "Stickers", "Rocks"], "correctIndex": 1 },
+        { "q": "What do they do on weekends?", "choices": ["Go to school", "Have a sleepover", "Go to work"], "correctIndex": 1 }
+      ]
+    },
+    {
+      "id": "r4",
+      "title": "A Rainy Day",
+      "level": "A2",
+      "icon": "☔",
+      "relatedCategory": "weather",
+      "text": "It is cloudy and rainy today, so we cannot play outside. My mother says it's a perfect day to stay home. I wear warm socks and drink hot chocolate. My little brother is a little sad because he wanted to ride his bike, but I tell him we can build a puzzle together instead. Later, the rain stops, and a rainbow appears in the sky. We run outside with our umbrellas, just to see it better.",
+      "questions": [
+        { "q": "Why can't they play outside?", "choices": ["It's too hot", "It's rainy", "It's too late"], "correctIndex": 1 },
+        { "q": "What do the children do instead?", "choices": ["Build a puzzle", "Watch a movie", "Go to school"], "correctIndex": 0 },
+        { "q": "What appears after the rain stops?", "choices": ["Snow", "The sun only", "A rainbow"], "correctIndex": 2 }
+      ]
+    },
+    {
+      "id": "r5",
+      "title": "My Weekend Hobbies",
+      "level": "A2",
+      "icon": "🎨",
+      "relatedCategory": "hobbies",
+      "text": "On weekends, I love to try new hobbies. On Saturday morning, I like to draw pictures of my favorite animals, especially cats and butterflies. In the afternoon, my family usually goes swimming at the pool near our house. On Sunday, I practice dancing in my room, even though I am still a little shy to dance in front of other people. My father says practice makes you more confident, and I am starting to believe him.",
+      "questions": [
+        { "q": "What does she draw on Saturday morning?", "choices": ["Cars", "Animals", "Houses"], "correctIndex": 1 },
+        { "q": "Where does the family go on Saturday afternoon?", "choices": ["The pool", "The library", "The forest"], "correctIndex": 0 },
+        { "q": "How does she feel about dancing in front of others?", "choices": ["Very brave", "A little shy", "Angry"], "correctIndex": 1 }
+      ]
+    },
+    {
+      "id": "r6",
+      "title": "Dinner at Grandma's",
+      "level": "A2",
+      "icon": "🍲",
+      "relatedCategory": "food",
+      "text": "Every Friday evening, my whole family has dinner at my grandmother's house. The food always smells delicious before we even sit down. We usually eat soup, chicken, and a lot of vegetables, and there is always a sweet dessert waiting for us. My grandmother has a special recipe for chocolate cake that everyone loves. After dinner, the grown-ups talk while the children play games in the living room until it's time to go home.",
+      "questions": [
+        { "q": "When does the family have dinner at grandma's?", "choices": ["Friday evening", "Monday morning", "Sunday night"], "correctIndex": 0 },
+        { "q": "What does grandma have a special recipe for?", "choices": ["Soup", "Chocolate cake", "Salad"], "correctIndex": 1 },
+        { "q": "What do the children do after dinner?", "choices": ["Wash dishes", "Play games", "Go to sleep"], "correctIndex": 1 }
+      ]
+    },
+    {
+      "id": "r7",
+      "title": "My Favorite Animal",
+      "level": "A2",
+      "icon": "🦋",
+      "relatedCategory": "animals",
+      "text": "My favorite animal is the butterfly. It is a beautiful creature with colorful wings, and no two butterflies look exactly the same. Butterflies live near flowers, in forests, and in gardens all around the world. In spring, I like to sit outside and watch them fly from flower to flower. Sometimes a butterfly lands on my hand, and I feel so excited that I almost forget to breathe. Wild animals are truly amazing to learn about, and butterflies taught me to look closely at small, beautiful things.",
+      "questions": [
+        { "q": "What is special about butterfly wings?", "choices": ["They are all the same", "No two look the same", "They are always black"], "correctIndex": 1 },
+        { "q": "Where do butterflies live?", "choices": ["Only in cages", "Near flowers and in forests", "Under the ocean"], "correctIndex": 1 },
+        { "q": "How does she feel when a butterfly lands on her hand?", "choices": ["Scared", "Bored", "Excited"], "correctIndex": 2 }
+      ]
+    },
+    {
+      "id": "r8",
+      "title": "The Brave Little Bird",
+      "level": "B1",
+      "icon": "🐦",
+      "relatedCategory": "animals",
+      "text": "Once there was a small bird named Pip. Pip lived in a nest high in a tall tree, and she loved her home. But Pip was afraid to fly. Every day, her mother would say, \"Pip, it's time to try,\" but Pip felt too nervous and stayed in the nest. One windy morning, a strong gust of wind pushed the nest, and Pip had no choice — she jumped. For a moment she fell, scared and silent. Then, without even thinking, she opened her wings. She was flying! Pip laughed with joy as she soared over the forest. From that day on, Pip understood something important: sometimes you don't feel brave before you try something new — you feel brave because you tried.",
+      "questions": [
+        { "q": "What was Pip afraid to do?", "choices": ["Sing", "Fly", "Eat"], "correctIndex": 1 },
+        { "q": "What made Pip finally jump from the nest?", "choices": ["A strong wind", "Her friend pushed her", "She wanted food"], "correctIndex": 0 },
+        { "q": "What did Pip learn at the end of the story?", "choices": ["Flying is easy", "You feel brave because you tried", "Nests are dangerous"], "correctIndex": 1 }
+      ]
+    }
+  ]
+}

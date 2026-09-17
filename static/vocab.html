@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>אוצר מילים - Teacher Zoe</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">‹ חזרה</a>
+  <header class="top-bar">
+    <div id="zoe-avatar-slot"></div>
+    <div>
+      <h1 style="font-size:1.15rem;">אוצר מילים</h1>
+      <p>למדי, ואז שחקי כדי לצבור נקודות</p>
+    </div>
+    <span class="points-pill" id="points-pill" style="margin-inline-start:auto;">⭐ 0</span>
+  </header>
+
+  <div class="mode-toggle" id="mode-toggle">
+    <button id="mode-study-btn" class="active">📖 למידה</button>
+    <button id="mode-game-btn">🎮 משחק נקודות</button>
+  </div>
+
+  <div class="card" id="picker-card">
+    <p style="margin:0 0 10px;font-weight:600;">בחרי נושא:</p>
+    <div class="category-picker" id="category-picker">
+      <span class="status-line">טוען נושאים...</span>
+    </div>
+  </div>
+
+  <!-- Study mode -->
+  <div id="deck-card" style="display:none;">
+    <div class="flashcard" id="flashcard"></div>
+    <div class="card-nav">
+      <button class="btn btn-secondary" id="prev-btn">‹ הקודם</button>
+      <span class="status-line" id="progress-label"></span>
+      <button class="btn btn-secondary" id="next-btn">הבא ›</button>
+    </div>
+    <div style="text-align:center;margin-top:14px;">
+      <button class="btn btn-secondary" id="change-topic-btn">🔄 נושא אחר</button>
+    </div>
+  </div>
+
+  <!-- Game mode -->
+  <div id="quiz-card" class="card" style="display:none;">
+    <div class="quiz-header">
+      <span id="quiz-progress"></span>
+      <span class="streak-badge" id="streak-badge">🔥 0</span>
+    </div>
+    <div class="quiz-prompt" id="quiz-prompt"></div>
+    <div class="quiz-choices" id="quiz-choices"></div>
+    <div style="text-align:center;margin-top:16px;">
+      <button class="btn btn-secondary" id="next-round-btn" style="display:none;">הבא ›</button>
+    </div>
+  </div>
+
+  <div id="quiz-finish-card" class="card" style="display:none;text-align:center;">
+    <div style="font-size:3rem;">🏆</div>
+    <h2>סיימת את המשחק!</h2>
+    <p id="quiz-finish-summary" style="font-size:1.1rem;"></p>
+    <button class="btn btn-primary" id="quiz-play-again-btn">שחקי שוב</button>
+    <button class="btn btn-secondary" id="quiz-change-topic-btn">נושא אחר</button>
+  </div>
+</div>
+
+<script src="js/mentor.js"></script>
+<script src="js/tts-en.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/vocab.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+{
+  "categories": [
+    {
+      "id": "feelings",
+      "title": "Feelings & Emotions",
+      "titleHe": "רגשות",
+      "icon": "😊",
+      "level": "A1",
+      "words": [
+        { "word": "happy", "he": "שמח/ה", "example": "I feel happy today.", "level": 1 },
+        { "word": "sad", "he": "עצוב/ה", "example": "She feels sad about the movie.", "level": 1 },
+        { "word": "excited", "he": "נרגש/ת", "example": "I am excited for my birthday.", "level": 2 },
+        { "word": "nervous", "he": "לחוץ/ה", "example": "He feels nervous before the test.", "level": 2 },
+        { "word": "proud", "he": "גאה", "example": "I am proud of my drawing.", "level": 2 },
+        { "word": "tired", "he": "עייף/ה", "example": "I am tired after school.", "level": 1 },
+        { "word": "brave", "he": "אמיץ/ה", "example": "You are very brave today.", "level": 2 },
+        { "word": "confident", "he": "בטוח/ה בעצמו/ה", "example": "I feel more confident when I practice.", "level": 3 },
+        { "word": "shy", "he": "ביישן/ית", "example": "Sometimes I feel shy to speak.", "level": 2 },
+        { "word": "calm", "he": "רגוע/ה", "example": "Take a breath and stay calm.", "level": 2 }
+      ]
+    },
+    {
+      "id": "family",
+      "title": "Family & Friends",
+      "titleHe": "משפחה וחברים",
+      "icon": "👨‍👩‍👧",
+      "level": "A1",
+      "words": [
+        { "word": "mother", "he": "אמא", "example": "My mother makes great pasta.", "level": 1 },
+        { "word": "father", "he": "אבא", "example": "My father plays soccer with me.", "level": 1 },
+        { "word": "sister", "he": "אחות", "example": "I have one sister.", "level": 1 },
+        { "word": "brother", "he": "אח", "example": "My brother is younger than me.", "level": 1 },
+        { "word": "friend", "he": "חבר/ה", "example": "She is my best friend.", "level": 1 },
+        { "word": "grandmother", "he": "סבתא", "example": "My grandmother tells great stories.", "level": 2 },
+        { "word": "grandfather", "he": "סבא", "example": "My grandfather loves to garden.", "level": 2 },
+        { "word": "cousin", "he": "בן/בת דוד/ה", "example": "My cousin visits us in summer.", "level": 2 },
+        { "word": "neighbor", "he": "שכן/ה", "example": "Our neighbor has a friendly dog.", "level": 3 },
+        { "word": "classmate", "he": "חבר/ה לכיתה", "example": "My classmate helped me with homework.", "level": 2 }
+      ]
+    },
+    {
+      "id": "school",
+      "title": "School & Learning",
+      "titleHe": "בית ספר ולמידה",
+      "icon": "🎒",
+      "level": "A1",
+      "words": [
+        { "word": "teacher", "he": "מורה", "example": "My teacher is very kind.", "level": 1 },
+        { "word": "homework", "he": "שיעורי בית", "example": "I finish my homework after dinner.", "level": 1 },
+        { "word": "notebook", "he": "מחברת", "example": "I write in my notebook every day.", "level": 1 },
+        { "word": "subject", "he": "מקצוע לימוד", "example": "Math is my favorite subject.", "level": 2 },
+        { "word": "test", "he": "מבחן", "example": "We have a test on Monday.", "level": 1 },
+        { "word": "recess", "he": "הפסקה", "example": "I play with friends at recess.", "level": 2 },
+        { "word": "library", "he": "ספרייה", "example": "I borrow books from the library.", "level": 2 },
+        { "word": "question", "he": "שאלה", "example": "I have a question for the teacher.", "level": 1 },
+        { "word": "answer", "he": "תשובה", "example": "I know the answer to this question.", "level": 1 },
+        { "word": "mistake", "he": "טעות", "example": "It's okay to make a mistake.", "level": 2 }
+      ]
+    },
+    {
+      "id": "hobbies",
+      "title": "Hobbies & Free Time",
+      "titleHe": "תחביבים וזמן פנוי",
+      "icon": "🎨",
+      "level": "A1",
+      "words": [
+        { "word": "draw", "he": "לצייר", "example": "I like to draw animals.", "level": 1 },
+        { "word": "dance", "he": "לרקוד", "example": "She loves to dance to music.", "level": 1 },
+        { "word": "read", "he": "לקרוא", "example": "I read a book before bed.", "level": 1 },
+        { "word": "swim", "he": "לשחות", "example": "We swim in the pool in summer.", "level": 1 },
+        { "word": "collect", "he": "לאסוף", "example": "I collect stickers.", "level": 2 },
+        { "word": "instrument", "he": "כלי נגינה", "example": "I want to learn an instrument.", "level": 3 },
+        { "word": "puzzle", "he": "פאזל", "example": "We built a puzzle together.", "level": 2 },
+        { "word": "board game", "he": "משחק לוח", "example": "We played a board game last night.", "level": 2 },
+        { "word": "favorite", "he": "אהוב/ה ביותר", "example": "What is your favorite hobby?", "level": 1 },
+        { "word": "practice", "he": "לתרגל", "example": "I practice English every day.", "level": 2 }
+      ]
+    },
+    {
+      "id": "food",
+      "title": "Food & Drinks",
+      "titleHe": "אוכל ושתייה",
+      "icon": "🍕",
+      "level": "A1",
+      "words": [
+        { "word": "breakfast", "he": "ארוחת בוקר", "example": "I eat cereal for breakfast.", "level": 1 },
+        { "word": "lunch", "he": "ארוחת צהריים", "example": "We have lunch at school.", "level": 1 },
+        { "word": "dinner", "he": "ארוחת ערב", "example": "My family eats dinner together.", "level": 1 },
+        { "word": "delicious", "he": "טעים מאוד", "example": "This pizza is delicious.", "level": 2 },
+        { "word": "vegetable", "he": "ירק", "example": "Carrots are my favorite vegetable.", "level": 2 },
+        { "word": "fruit", "he": "פרי", "example": "I eat fruit every day.", "level": 1 },
+        { "word": "hungry", "he": "רעב/ה", "example": "I am hungry after school.", "level": 1 },
+        { "word": "thirsty", "he": "צמא/ה", "example": "I am thirsty after running.", "level": 1 },
+        { "word": "snack", "he": "חטיף/נשנוש", "example": "I have a snack after school.", "level": 1 },
+        { "word": "recipe", "he": "מתכון", "example": "We followed a recipe to bake cookies.", "level": 3 }
+      ]
+    },
+    {
+      "id": "animals",
+      "title": "Animals & Nature",
+      "titleHe": "בעלי חיים וטבע",
+      "icon": "🐶",
+      "level": "A1",
+      "words": [
+        { "word": "dog", "he": "כלב", "example": "My dog likes to play outside.", "level": 1 },
+        { "word": "cat", "he": "חתול", "example": "The cat is sleeping on the sofa.", "level": 1 },
+        { "word": "bird", "he": "ציפור", "example": "A bird is singing in the tree.", "level": 1 },
+        { "word": "forest", "he": "יער", "example": "We walked through the forest.", "level": 2 },
+        { "word": "ocean", "he": "אוקיינוס", "example": "Dolphins live in the ocean.", "level": 2 },
+        { "word": "butterfly", "he": "פרפר", "example": "A colorful butterfly landed on the flower.", "level": 2 },
+        { "word": "wild", "he": "פראי/בר", "example": "Lions are wild animals.", "level": 2 },
+        { "word": "nest", "he": "קן", "example": "The bird built a nest in the tree.", "level": 2 },
+        { "word": "pet", "he": "חיית מחמד", "example": "Do you have a pet at home?", "level": 1 },
+        { "word": "creature", "he": "יצור", "example": "It was a strange creature in the story.", "level": 3 }
+      ]
+    },
+    {
+      "id": "routine",
+      "title": "Daily Routine",
+      "titleHe": "שגרת יומיום",
+      "icon": "⏰",
+      "level": "A1",
+      "words": [
+        { "word": "wake up", "he": "להתעורר", "example": "I wake up at seven o'clock.", "level": 1 },
+        { "word": "brush teeth", "he": "לצחצח שיניים", "example": "I brush my teeth every morning.", "level": 1 },
+        { "word": "get dressed", "he": "להתלבש", "example": "I get dressed after breakfast.", "level": 1 },
+        { "word": "shower", "he": "מקלחת", "example": "I take a shower before bed.", "level": 1 },
+        { "word": "bedtime", "he": "זמן שינה", "example": "My bedtime is at nine o'clock.", "level": 2 },
+        { "word": "schedule", "he": "לוח זמנים", "example": "I have a busy schedule today.", "level": 3 },
+        { "word": "usually", "he": "בדרך כלל", "example": "I usually walk to school.", "level": 2 },
+        { "word": "sometimes", "he": "לפעמים", "example": "Sometimes I watch TV after school.", "level": 2 },
+        { "word": "always", "he": "תמיד", "example": "I always say good morning.", "level": 1 },
+        { "word": "never", "he": "אף פעם לא", "example": "I never forget my backpack.", "level": 1 }
+      ]
+    },
+    {
+      "id": "weather",
+      "title": "Weather & Seasons",
+      "titleHe": "מזג אוויר ועונות",
+      "icon": "☀️",
+      "level": "A1",
+      "words": [
+        { "word": "sunny", "he": "שמשי", "example": "It is sunny today.", "level": 1 },
+        { "word": "rainy", "he": "גשום", "example": "I wear boots when it's rainy.", "level": 1 },
+        { "word": "cloudy", "he": "מעונן", "example": "The sky is cloudy today.", "level": 1 },
+        { "word": "windy", "he": "סוער/רוחני", "example": "It's very windy outside.", "level": 2 },
+        { "word": "summer", "he": "קיץ", "example": "I love swimming in the summer.", "level": 1 },
+        { "word": "winter", "he": "חורף", "example": "It snows a lot in winter.", "level": 1 },
+        { "word": "spring", "he": "אביב", "example": "Flowers bloom in the spring.", "level": 2 },
+        { "word": "autumn", "he": "סתיו", "example": "The leaves fall in autumn.", "level": 2 },
+        { "word": "temperature", "he": "טמפרטורה", "example": "The temperature is very high today.", "level": 3 },
+        { "word": "umbrella", "he": "מטריה", "example": "Don't forget your umbrella!", "level": 2 }
+      ]
+    },
+    {
+      "id": "body",
+      "title": "Body & Health",
+      "titleHe": "גוף ובריאות",
+      "icon": "🩹",
+      "level": "A1",
+      "words": [
+        { "word": "head", "he": "ראש", "example": "My head hurts a little.", "level": 1 },
+        { "word": "hand", "he": "יד", "example": "I wave my hand hello.", "level": 1 },
+        { "word": "eyes", "he": "עיניים", "example": "She has big brown eyes.", "level": 1 },
+        { "word": "sick", "he": "חולה", "example": "I stay home when I am sick.", "level": 1 },
+        { "word": "healthy", "he": "בריא/ה", "example": "Vegetables help you stay healthy.", "level": 2 },
+        { "word": "strong", "he": "חזק/ה", "example": "I feel strong after I exercise.", "level": 2 },
+        { "word": "rest", "he": "לנוח", "example": "I need to rest after running.", "level": 2 },
+        { "word": "doctor", "he": "רופא/ה", "example": "The doctor checked my ear.", "level": 2 },
+        { "word": "hurt", "he": "כואב/פגוע", "example": "My knee hurts a little.", "level": 2 },
+        { "word": "energy", "he": "אנרגיה", "example": "I have a lot of energy in the morning.", "level": 3 }
+      ]
+    },
+    {
+      "id": "numbers_time",
+      "title": "Numbers & Time",
+      "titleHe": "מספרים וזמן",
+      "icon": "🕒",
+      "level": "A1",
+      "words": [
+        { "word": "today", "he": "היום", "example": "Today is a sunny day.", "level": 1 },
+        { "word": "tomorrow", "he": "מחר", "example": "Tomorrow I have a test.", "level": 1 },
+        { "word": "yesterday", "he": "אתמול", "example": "Yesterday I played with my friend.", "level": 2 },
+        { "word": "morning", "he": "בוקר", "example": "I feel happy in the morning.", "level": 1 },
+        { "word": "evening", "he": "ערב", "example": "We eat dinner in the evening.", "level": 1 },
+        { "word": "minute", "he": "דקה", "example": "Wait one minute, please.", "level": 2 },
+        { "word": "hour", "he": "שעה", "example": "The movie is one hour long.", "level": 2 },
+        { "word": "week", "he": "שבוע", "example": "I have school five days a week.", "level": 2 },
+        { "word": "first", "he": "ראשון", "example": "I was first in line.", "level": 2 },
+        { "word": "again", "he": "שוב", "example": "Can you say that again, please?", "level": 1 }
+      ]
+    }
+  ]
+}

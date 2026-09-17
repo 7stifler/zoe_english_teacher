@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher Zoe</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top-bar">
+    <div id="zoe-avatar-slot"></div>
+    <div>
+      <h1>שלום! אני Teacher Zoe 👋</h1>
+      <p>המורה שלך לתרגול אנגלית</p>
+    </div>
+    <span class="points-pill" id="points-pill" style="margin-inline-start:auto;">⭐ 0</span>
+  </header>
+
+  <div class="stats-row" id="stats-row"></div>
+
+  <div class="module-grid">
+    <a class="module-card" href="speaking.html">
+      <div class="module-icon speaking">🗣️</div>
+      <div>
+        <h2>תרגול דיבור</h2>
+        <p>שיחה עם Zoe, בלי פחד לטעות</p>
+      </div>
+    </a>
+
+    <a class="module-card" href="vocab.html">
+      <div class="module-icon vocab">🎮</div>
+      <div>
+        <h2>אוצר מילים</h2>
+        <p>כרטיסיות + משחק נקודות</p>
+      </div>
+    </a>
+
+    <a class="module-card" href="reading.html">
+      <div class="module-icon reading">🗺️</div>
+      <div>
+        <h2>מסלול קריאה</h2>
+        <p>תחנות מתקדמות + שאלות הבנה</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<script src="js/mentor.js"></script>
+<script src="js/progress.js"></script>
+<script>
+  Mentor.render("zoe-avatar-slot", "smile", 76);
+
+  const summary = ZoeProgress.getSummary();
+  document.getElementById("points-pill").textContent = `⭐ ${summary.points}`;
+
+  const statsRow = document.getElementById("stats-row");
+  const stats = [
+    { label: "נקודות", value: summary.points, icon: "⭐" },
+    { label: "תחנות קריאה", value: summary.passagesCompleted, icon: "🗺️" },
+    { label: "שיחות דיבור", value: summary.speakingTurns, icon: "🗣️" },
+  ];
+  statsRow.innerHTML = stats.map(s => `
+    <div class="card" style="flex:1;min-width:100px;text-align:center;padding:12px;margin:0;">
+      <div style="font-size:1.3rem;">${s.icon}</div>
+      <div style="font-size:1.2rem;font-weight:700;">${s.value}</div>
+      <div style="font-size:0.75rem;color:var(--brown-soft);">${s.label}</div>
+    </div>
+  `).join("");
+</script>
+</body>
+</html>
