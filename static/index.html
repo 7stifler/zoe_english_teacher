@@ -2,7 +2,7 @@
 <html lang="he">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Teacher Zoe</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,31 +31,33 @@
 
   <div class="stats-row" id="stats-row"></div>
 
-  <div class="section-label">המסלולים שלך</div>
-  <div class="module-grid">
-    <a class="module-card featured" href="speaking.html">
-      <div class="module-icon speaking">🗣️</div>
-      <div>
-        <h2>תרגול דיבור</h2>
-        <p>שיחה עם Zoe, בלי פחד לטעות</p>
-      </div>
+  <div class="section-label">בחרי לאן ממשיכים</div>
+
+  <div class="hub">
+    <a class="hub-node" href="speaking.html">
+      <span class="hub-start-tag">מתחילים כאן</span>
+      <div class="hub-circle hub-circle-lg">🗣️</div>
+      <div class="hub-label">תרגול דיבור</div>
+      <div class="hub-sub">שיחה עם Zoe, בלי פחד לטעות</div>
     </a>
 
-    <a class="module-card" href="vocab.html">
-      <div class="module-icon vocab">🎮</div>
-      <div>
-        <h2>אוצר מילים</h2>
-        <p>כרטיסיות + משחק נקודות</p>
-      </div>
-    </a>
+    <div class="hub-row">
+      <a class="hub-node" href="vocab.html">
+        <div class="hub-circle hub-circle-md hub-circle-vocab">🎮</div>
+        <div class="hub-label hub-label-md">אוצר מילים</div>
+        <div class="hub-sub">כרטיסיות + משחק נקודות</div>
+      </a>
+      <a class="hub-node" href="reading.html">
+        <div class="hub-circle hub-circle-md hub-circle-reading">🗺️</div>
+        <div class="hub-label hub-label-md">מסלול קריאה</div>
+        <div class="hub-sub">תחנות + שאלות הבנה</div>
+      </a>
+    </div>
 
-    <a class="module-card" href="reading.html">
-      <div class="module-icon reading">🗺️</div>
-      <div>
-        <h2>מסלול קריאה</h2>
-        <p>תחנות מתקדמות + שאלות הבנה</p>
-      </div>
-    </a>
+    <div class="hub-node-locked">
+      <div class="hub-circle-locked">🔒</div>
+      <div class="hub-label-locked">עוד דרכים בקרוב...</div>
+    </div>
   </div>
 </div>
 
@@ -71,11 +73,7 @@
     { label: "שיחות דיבור", value: summary.speakingTurns, icon: "🗣️" },
   ];
   statsRow.innerHTML = stats.map(s => `
-    <div class="card stat-tile">
-      <div class="stat-icon">${s.icon}</div>
-      <div class="stat-value">${s.value}</div>
-      <div class="stat-label">${s.label}</div>
-    </div>
+    <span class="stat-pill">${s.icon} <b>${s.value}</b> ${s.label}</span>
   `).join("");
 </script>
 </body>
