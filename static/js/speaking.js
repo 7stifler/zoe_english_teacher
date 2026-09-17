@@ -43,13 +43,23 @@
   const speakEnglish = (text) => ZoeTTS.speak(text);
 
   // ---------- Chat rendering ----------
+  function avatarHtml(who) {
+    const src = who === "zoe" ? "img/zoe-avatar.png" : "img/daniel-avatar.png";
+    const fallback = who === "zoe" ? "🧑‍🏫" : "🙂";
+    return `<span class="msg-avatar msg-avatar-${who}">${fallback}<img src="${src}" alt="" onerror="this.style.display='none'"></span>`;
+  }
+
   function addBubble(text, who) {
-    const div = document.createElement("div");
-    div.className = `bubble ${who}`;
-    div.textContent = text;
-    chatLog.appendChild(div);
+    const row = document.createElement("div");
+    row.className = `msg-row msg-row-${who}`;
+    const bubbleHtml = `<div class="bubble ${who}"></div>`;
+    row.innerHTML = who === "me"
+      ? `${bubbleHtml}${avatarHtml(who)}`
+      : `${avatarHtml(who)}${bubbleHtml}`;
+    row.querySelector(".bubble").textContent = text;
+    chatLog.appendChild(row);
     chatLog.scrollTop = chatLog.scrollHeight;
-    return div;
+    return row;
   }
   function addHint(text, isEnglish) {
     if (!text) return;
