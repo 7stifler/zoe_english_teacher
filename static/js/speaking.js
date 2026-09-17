@@ -12,7 +12,8 @@
   const TURNS_KEY = "zoe-speaking-turns-v1";
   const pointsPill = document.getElementById("points-pill");
   let currentCategory = null;
-  let lastQuestion = "";
+  let currentWords = [];
+  let conversationHistory = []; // [{speaker: "zoe"|"me", text}] - the real, growing conversation
   let recognition = null;
   let isListening = false;
 
@@ -67,7 +68,7 @@
     if (data.hebrew_hint) {
       addHint(data.hebrew_hint, false);
     }
-    lastQuestion = data.reply_en || lastQuestion;
+    conversationHistory.push({ speaker: "zoe", text: data.reply_en || "" });
     speakEnglish(data.reply_en);
   }
 
@@ -91,18 +92,19 @@
 
   async function startSession(cat) {
     currentCategory = cat;
+    currentWords = cat.words.slice(0, 6).map(w => w.word);
+    conversationHistory = [];
     pickerCard.style.display = "none";
     chatCard.style.display = "block";
     chatLog.innerHTML = "";
     statusLine.textContent = "Zoe חושבת...";
     micBtn.disabled = true;
 
-    const words = cat.words.slice(0, 6).map(w => w.word);
     try {
       const res = await fetch("/api/speaking/start", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ categoryTitle: cat.title, words }),
+        body: JSON.stringify({ categoryTitle: cat.title, words: currentWords }),
       });
       const data = await res.json();
       showZoeResponse(data);
@@ -171,6 +173,8 @@
   }
 
   async function sendTranscript(transcript) {
+    const historyForRequest = conversationHistory.slice(); // before this turn's "me" entry
+    conversationHistory.push({ speaker: "me", text: transcript });
     try {
       const res = await fetch("/api/speaking/reply", {
         method: "POST",
@@ -178,7 +182,8 @@
         body: JSON.stringify({
           transcript,
           categoryTitle: currentCategory ? currentCategory.title : "general topics",
-          lastQuestion,
+          words: currentWords,
+          history: historyForRequest,
         }),
       });
       const data = await res.json();

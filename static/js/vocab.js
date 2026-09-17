@@ -191,8 +191,6 @@
       btn.addEventListener("click", () => answerRound(opt, btn, round));
       quizChoices.appendChild(btn);
     });
-
-    if (round.direction === "he2en") ZoeTTS.speak(round.correct.word);
   }
 
   function answerRound(opt, btnEl, round) {
