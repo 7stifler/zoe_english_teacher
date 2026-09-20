@@ -178,9 +178,9 @@ body.zoe-is-speaking .zoe-wave {
 /* ---------------- Dashboard hero ---------------- */
 .hero-header {
   position: relative;
-  border-radius: 26px;
-  padding: 26px 22px;
-  margin-bottom: 18px;
+  border-radius: 22px;
+  padding: 18px 16px;
+  margin-bottom: 14px;
   overflow: hidden;
   background:
     radial-gradient(120% 140% at 100% -10%, rgba(245, 166, 35, 0.35), transparent 60%),
@@ -196,7 +196,15 @@ body.zoe-is-speaking .zoe-wave {
   gap: 16px;
 }
 
-.hero-header .zoe-avatar { width: 132px; height: 132px; }
+/* Mobile-first: comfortable phone size by default, roomier on tablet/desktop */
+.hero-header .zoe-avatar { width: 92px; height: 92px; }
+header.top-bar .zoe-avatar { width: 64px; height: 64px; }
+
+@media (min-width: 600px) {
+  .hero-header { padding: 26px 22px; margin-bottom: 18px; border-radius: 26px; }
+  .hero-header .zoe-avatar { width: 132px; height: 132px; }
+  header.top-bar .zoe-avatar { width: 82px; height: 82px; }
+}
 
 .hero-header h1 {
   font-size: 1.55rem;
@@ -282,15 +290,19 @@ body.zoe-is-speaking .zoe-wave {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 26px;
-  padding: 30px 0 36px;
+  gap: 18px;
+  padding: 18px 0 26px;
+}
+
+@media (min-width: 600px) {
+  .hub { gap: 26px; padding: 30px 0 36px; }
 }
 
 .hub-row {
   position: relative;
   z-index: 1;
   display: flex;
-  gap: 42px;
+  gap: 20px;
 }
 
 .hub-node {
@@ -302,8 +314,13 @@ body.zoe-is-speaking .zoe-wave {
   gap: 10px;
   text-decoration: none;
   color: var(--ink);
-  width: 160px;
+  width: 132px;
   animation: hub-pop 0.5s ease both;
+}
+
+@media (min-width: 600px) {
+  .hub-row { gap: 42px; }
+  .hub-node { width: 176px; }
 }
 
 .hub > .hub-node { animation-delay: 0.05s; }
@@ -335,16 +352,21 @@ body.zoe-is-speaking .zoe-wave {
 }
 
 .hub-circle-lg {
-  width: 184px;
-  height: 184px;
+  width: 148px;
+  height: 148px;
   background: linear-gradient(155deg, var(--terracotta) 0%, #D9633F 100%);
   box-shadow: var(--shadow-lift), 0 0 0 6px rgba(232, 121, 90, 0.16);
 }
 
 .hub-circle-md {
-  width: 148px;
-  height: 148px;
+  width: 118px;
+  height: 118px;
   box-shadow: var(--shadow-lift);
+}
+
+@media (min-width: 600px) {
+  .hub-circle-lg { width: 184px; height: 184px; }
+  .hub-circle-md { width: 148px; height: 148px; }
 }
 
 .hub-circle-vocab { background: linear-gradient(155deg, #FFD98A 0%, var(--amber) 100%); }
@@ -377,13 +399,6 @@ body.zoe-is-speaking .zoe-wave {
   border-radius: 999px;
   z-index: 2;
   box-shadow: var(--shadow-sm);
-}
-
-@media (max-width: 380px) {
-  .hub-row { gap: 24px; }
-  .hub-node { width: 132px; }
-  .hub-circle-lg { width: 156px; height: 156px; }
-  .hub-circle-md { width: 124px; height: 124px; }
 }
 
 /* Visible keyboard focus everywhere interactive */
@@ -837,6 +852,5 @@ a.back-link {
   .wrap { padding: 14px 10px 50px; }
   .station-label { max-width: 110px; font-size: 0.78rem; }
   .quiz-prompt { font-size: 1.3rem; }
-  .hero-header .zoe-avatar { width: 104px; height: 104px; }
   .hero-header h1 { font-size: 1.3rem; }
 }
