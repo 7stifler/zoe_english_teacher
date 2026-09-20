@@ -172,6 +172,7 @@ body.zoe-is-speaking .zoe-wave {
 @media (prefers-reduced-motion: reduce) {
   body.zoe-is-speaking .zoe-avatar-wrap .zoe-avatar { animation: none; }
   .zoe-wave i { animation: none; }
+  .hub-node { animation: none; opacity: 1; transform: none; }
 }
 
 /* ---------------- Dashboard hero ---------------- */
@@ -204,7 +205,7 @@ body.zoe-is-speaking .zoe-wave {
   gap: 16px;
 }
 
-.hero-header .zoe-avatar { width: 108px; height: 108px; }
+.hero-header .zoe-avatar { width: 132px; height: 132px; }
 
 .hero-header h1 {
   font-size: 1.55rem;
@@ -294,24 +295,11 @@ body.zoe-is-speaking .zoe-wave {
   padding: 30px 0 36px;
 }
 
-.hub::before {
-  content: "";
-  position: absolute;
-  top: 6px;
-  bottom: 26px;
-  left: 50%;
-  width: 4px;
-  transform: translateX(-50%);
-  background: repeating-linear-gradient(to bottom, var(--amber) 0 10px, transparent 10px 20px);
-  border-radius: 4px;
-  z-index: 0;
-}
-
 .hub-row {
   position: relative;
   z-index: 1;
   display: flex;
-  gap: 38px;
+  gap: 42px;
 }
 
 .hub-node {
@@ -320,10 +308,20 @@ body.zoe-is-speaking .zoe-wave {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   text-decoration: none;
   color: var(--ink);
-  width: 128px;
+  width: 160px;
+  animation: hub-pop 0.5s ease both;
+}
+
+.hub > .hub-node { animation-delay: 0.05s; }
+.hub-row .hub-node:nth-child(1) { animation-delay: 0.18s; }
+.hub-row .hub-node:nth-child(2) { animation-delay: 0.3s; }
+
+@keyframes hub-pop {
+  from { opacity: 0; transform: translateY(16px) scale(0.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .hub-circle {
@@ -345,15 +343,15 @@ body.zoe-is-speaking .zoe-wave {
 }
 
 .hub-circle-lg {
-  width: 148px;
-  height: 148px;
+  width: 184px;
+  height: 184px;
   background: linear-gradient(155deg, var(--terracotta) 0%, #D9633F 100%);
   box-shadow: var(--shadow-lift), 0 0 0 6px rgba(232, 121, 90, 0.16);
 }
 
 .hub-circle-md {
-  width: 116px;
-  height: 116px;
+  width: 148px;
+  height: 148px;
   box-shadow: var(--shadow-lift);
 }
 
@@ -389,40 +387,20 @@ body.zoe-is-speaking .zoe-wave {
   box-shadow: var(--shadow-sm);
 }
 
-.hub-node-locked {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 7px;
-  width: 128px;
-}
-
-.hub-circle-locked {
-  width: 84px;
-  height: 84px;
-  border-radius: 50%;
-  background: #F1E7D2;
-  border: 3px dashed #DECBA0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: #B7A480;
-}
-
-.hub-label-locked {
-  color: var(--ink-soft);
-  font-size: 0.78rem;
-  text-align: center;
-}
-
 @media (max-width: 380px) {
-  .hub-row { gap: 22px; }
-  .hub-node, .hub-node-locked { width: 108px; }
-  .hub-circle-lg { width: 130px; height: 130px; font-size: 2.9rem; }
-  .hub-circle-md { width: 100px; height: 100px; font-size: 2.1rem; }
+  .hub-row { gap: 24px; }
+  .hub-node { width: 132px; }
+  .hub-circle-lg { width: 156px; height: 156px; }
+  .hub-circle-md { width: 124px; height: 124px; }
+}
+
+/* Visible keyboard focus everywhere interactive */
+a:focus-visible,
+button:focus-visible,
+.quiz-choice:focus-visible,
+.category-chip:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
 }
 
 .module-grid {
@@ -564,9 +542,9 @@ a.back-link {
 .msg-row-me { align-self: flex-end; }
 
 .msg-avatar {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
   border-radius: 50%;
   flex-shrink: 0;
   display: flex;
@@ -867,6 +845,6 @@ a.back-link {
   .wrap { padding: 14px 10px 50px; }
   .station-label { max-width: 110px; font-size: 0.78rem; }
   .quiz-prompt { font-size: 1.3rem; }
-  .hero-header .zoe-avatar { width: 86px; height: 86px; }
+  .hero-header .zoe-avatar { width: 104px; height: 104px; }
   .hero-header h1 { font-size: 1.3rem; }
 }
