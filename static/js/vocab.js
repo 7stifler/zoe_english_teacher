@@ -1,4 +1,5 @@
 (() => {
+  Track.pageView("vocab");
   const modeStudyBtn = document.getElementById("mode-study-btn");
   const modeGameBtn = document.getElementById("mode-game-btn");
   const pickerCard = document.getElementById("picker-card");
@@ -89,12 +90,19 @@
     renderCard();
   }
 
+  function boldWordInSentence(sentence, word) {
+    const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const re = new RegExp(escaped, "i");
+    return sentence.replace(re, (match) => `<b>${match}</b>`);
+  }
+
   function renderCard() {
     const w = words[index];
     progressLabel.textContent = `${index + 1} / ${words.length}`;
     if (!flipped) {
       flashcard.innerHTML = `
         <div class="word">${w.word}</div>
+        <div class="example-front">${boldWordInSentence(w.example, w.word)}</div>
         <button class="btn btn-secondary" id="speak-btn" style="margin-top:6px;">🔊 השמע</button>
         <div class="hint">הקש/י לתרגום</div>`;
       document.getElementById("speak-btn").addEventListener("click", (e) => {
@@ -104,7 +112,7 @@
     } else {
       flashcard.innerHTML = `
         <div class="translation">${w.he}</div>
-        <div class="example">"${w.example}"</div>
+        <div class="example-translation">${w.exampleHe || ""}</div>
         <div class="hint">הקש/י בחזרה למילה</div>`;
     }
   }
@@ -229,6 +237,12 @@
     ZoeProgress.addPoints(sessionPoints);
     ZoeProgress.setVocabBest(currentCategory.id, sessionPoints);
     updatePointsPill();
+    Track.send("vocab_game_complete", {
+      category: currentCategory.title,
+      correct: correctCount,
+      total: quizRounds.length,
+      points: sessionPoints,
+    });
     quizCard.style.display = "none";
     quizFinishCard.style.display = "block";
     quizFinishSummary.textContent =

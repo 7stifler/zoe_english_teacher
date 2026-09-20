@@ -10,6 +10,8 @@ import asyncio
 import hashlib
 import json
 import os
+import sqlite3
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -24,6 +26,25 @@ DATA_DIR = BASE_DIR / "data"
 STATIC_DIR = BASE_DIR / "static"
 AUDIO_CACHE_DIR = BASE_DIR / "audio_cache"
 AUDIO_CACHE_DIR.mkdir(exist_ok=True)
+
+# Activity log for the parent report (/parent.html). NOTE: on Render's free tier
+# this SQLite file lives on ephemeral disk and is wiped on every redeploy - fine
+# while we're actively iterating, but if long-term history matters later, move
+# this to a persistent disk or a hosted DB.
+ACTIVITY_DB = DATA_DIR / "activity.db"
+
+
+def get_db():
+    conn = sqlite3.connect(ACTIVITY_DB)
+    conn.execute(
+        """CREATE TABLE IF NOT EXISTS events (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            ts TEXT NOT NULL,
+            event TEXT NOT NULL,
+            meta TEXT
+        )"""
+    )
+    return conn
 
 API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 PORT = int(os.environ.get("PORT", "5050"))
@@ -189,6 +210,64 @@ def api_tts():
             return jsonify({"error": str(exc)}), 500
 
     return send_file(cache_path, mimetype="audio/mpeg")
+
+
+@app.route("/api/track", methods=["POST"])
+def api_track():
+    body = request.get_json(force=True) or {}
+    event = (body.get("event") or "").strip()
+    if not event:
+        return abort(400)
+    meta = body.get("meta") or {}
+    conn = get_db()
+    conn.execute(
+        "INSERT INTO events (ts, event, meta) VALUES (?, ?, ?)",
+        (datetime.now(timezone.utc).isoformat(), event, json.dumps(meta, ensure_ascii=False)),
+    )
+    conn.commit()
+    conn.close()
+    return jsonify({"ok": True})
+
+
+@app.route("/api/parent/report")
+def api_parent_report():
+    days = int(request.args.get("days", 7))
+    since = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
+
+    conn = get_db()
+    rows = conn.execute(
+        "SELECT ts, event, meta FROM events WHERE ts >= ? ORDER BY ts DESC", (since,)
+    ).fetchall()
+    conn.close()
+
+    events = [{"ts": r[0], "event": r[1], "meta": json.loads(r[2] or "{}")} for r in rows]
+
+    visits = [e for e in events if e["event"] == "page_view" and e["meta"].get("page") == "index"]
+    by_day = {}
+    for e in visits:
+        day = e["ts"][:10]
+        by_day[day] = by_day.get(day, 0) + 1
+
+    counts = {}
+    for e in events:
+        counts[e["event"]] = counts.get(e["event"], 0) + 1
+
+    return jsonify({
+        "days": days,
+        "total_visits": len(visits),
+        "visits_by_day": sorted(by_day.items()),
+        "event_counts": counts,
+        "recent": events[:40],
+    })
+
+
+@app.route("/api/parent/clear-events", methods=["POST"])
+def api_parent_clear_events():
+    conn = get_db()
+    conn.execute("DELETE FROM events")
+    conn.commit()
+    conn.close()
+    return jsonify({"ok": True})
 
 
 @app.route("/health")

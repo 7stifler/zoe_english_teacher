@@ -72,6 +72,15 @@ const ZoeProgress = (() => {
     };
   }
 
+  // Clears all progress on THIS device/browser only (points, reading stars,
+  // vocab best scores, speaking turn count). Used by the reset button on
+  // parent.html.
+  function resetAll() {
+    [POINTS_KEY, READING_KEY, VOCAB_BEST_KEY, SPEAKING_TURNS_KEY].forEach((k) => {
+      try { localStorage.removeItem(k); } catch (e) { /* ignore */ }
+    });
+  }
+
   return {
     getPoints,
     addPoints,
@@ -82,5 +91,6 @@ const ZoeProgress = (() => {
     setVocabBest,
     getSpeakingTurns,
     getSummary,
+    resetAll,
   };
 })();

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>אזור הורה - Teacher Zoe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Suez+One&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  .parent-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .parent-table th, .parent-table td { padding: 6px 8px; text-align: right; border-bottom: 1px solid var(--card-border); }
+  .parent-table th { color: var(--ink-soft); font-weight: 600; font-size: 0.8rem; }
+  .feed-item { padding: 8px 0; border-bottom: 1px solid var(--card-border); font-size: 0.88rem; }
+  .feed-item:last-child { border-bottom: none; }
+  .feed-time { color: var(--ink-soft); font-size: 0.76rem; }
+  .days-toggle { display: flex; gap: 8px; margin-bottom: 14px; }
+  .days-toggle button { flex: 1; border: 1.5px solid var(--card-border); background: var(--card); border-radius: 12px; padding: 8px; font-family: var(--font-body); font-weight: 600; cursor: pointer; }
+  .days-toggle button.active { background: var(--amber-soft); border-color: var(--amber); }
+  .danger-btn { background: var(--terracotta-soft); color: #7A2E1D; border: 1px solid #E8B29E; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">‹ חזרה</a>
+  <header class="top-bar">
+    <div>
+      <h1 style="font-size:1.3rem;">אזור הורה 👨‍👩‍👧</h1>
+      <p>דוח פעילות ואיפוס התקדמות</p>
+    </div>
+  </header>
+
+  <div class="card">
+    <h2 style="margin:0 0 10px;font-size:1.05rem;">דוח פעילות</h2>
+    <div class="days-toggle" id="days-toggle">
+      <button data-days="7" class="active">7 ימים אחרונים</button>
+      <button data-days="30">30 יום אחרונים</button>
+    </div>
+    <div id="report-summary" class="stats-row"></div>
+    <div id="visits-by-day"></div>
+  </div>
+
+  <div class="card">
+    <h2 style="margin:0 0 10px;font-size:1.05rem;">פעילות אחרונה</h2>
+    <div id="feed">טוען...</div>
+  </div>
+
+  <div class="card">
+    <h2 style="margin:0 0 10px;font-size:1.05rem;">איפוס</h2>
+    <p style="font-size:0.85rem;color:var(--ink-soft);margin-top:0;">
+      איפוס נקודות/כוכבים/משחקים משפיע רק על המכשיר והדפדפן הזה (זה נשמר מקומית אצל כל ילד/ה).
+    </p>
+    <button class="btn danger-btn" id="reset-progress-btn" style="width:100%;margin-bottom:10px;">איפוס התקדמות במכשיר הזה</button>
+    <p style="font-size:0.85rem;color:var(--ink-soft);">
+      זה מוחק את יומן הפעילות בשרת (שימושי לפני שמתחילים "באמת" ולנקות בדיקות).
+    </p>
+    <button class="btn danger-btn" id="clear-events-btn" style="width:100%;">ניקוי יומן פעילות בשרת</button>
+  </div>
+</div>
+
+<script src="js/progress.js"></script>
+<script src="js/parent.js"></script>
+</body>
+</html>

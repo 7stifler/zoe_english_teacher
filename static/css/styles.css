@@ -669,8 +669,11 @@ a.back-link {
 }
 
 .flashcard .word { font-size: 1.9rem; font-weight: 700; font-family: var(--font-display); direction: ltr; }
-.flashcard .example { font-size: 0.95rem; color: var(--ink-soft); direction: ltr; }
+.flashcard .example,
+.flashcard .example-front { font-size: 0.95rem; color: var(--ink-soft); direction: ltr; text-align: center; }
+.flashcard .example-front b { color: var(--ink); font-weight: 700; }
 .flashcard .translation { font-size: 1.25rem; color: var(--teal-deep); font-weight: 700; font-family: var(--font-display); }
+.flashcard .example-translation { font-size: 0.95rem; color: var(--ink-soft); direction: rtl; text-align: center; }
 .flashcard .hint { font-size: 0.8rem; color: var(--ink-soft); margin-top: 8px; }
 
 .card-nav {

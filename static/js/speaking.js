@@ -1,4 +1,5 @@
 (() => {
+  Track.pageView("speaking");
   const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
   const chatLog = document.getElementById("chat-log");
   const micBtn = document.getElementById("mic-btn");
@@ -26,6 +27,7 @@
     ZoeProgress.addPoints(5);
     updateTurnCounter();
     updatePointsPill();
+    Track.send("speaking_turn", { category: currentCategory ? currentCategory.title : "" });
   }
   function updateTurnCounter() {
     const n = getTurns();

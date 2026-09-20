@@ -52,8 +52,10 @@
   </div>
 </div>
 
+<script src="js/track.js"></script>
 <script src="js/progress.js"></script>
 <script>
+  Track.pageView("index");
   const summary = ZoeProgress.getSummary();
   document.getElementById("points-pill").textContent = `⭐ ${summary.points}`;
 

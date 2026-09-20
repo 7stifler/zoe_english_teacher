@@ -1,4 +1,5 @@
 (() => {
+  Track.pageView("reading");
   const trailView = document.getElementById("trail-view");
   const trailEl = document.getElementById("trail");
   const passageView = document.getElementById("passage-view");
@@ -167,6 +168,13 @@
     ZoeProgress.addPoints(pointsEarnedThisRound);
     ZoeProgress.markPassageComplete(currentPassage.id, stars);
     updatePointsPill();
+    Track.send("reading_complete", {
+      passage: currentPassage.title,
+      correct: correctCount,
+      total,
+      stars,
+      points: pointsEarnedThisRound,
+    });
 
     finishStars.textContent = "⭐".repeat(stars) + "☆".repeat(3 - stars);
     finishPoints.textContent = `צברת ${pointsEarnedThisRound} נקודות בסבב הזה!`;
