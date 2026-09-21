@@ -49,7 +49,7 @@ def get_db():
 API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 PORT = int(os.environ.get("PORT", "5050"))
 MODEL = "claude-sonnet-5"
-STUDENT_NAME = "Daniel"
+STUDENT_NAME = "Dundun"
 MAX_HISTORY_TURNS = 12  # trailing {speaker, text} entries kept for context (6 exchanges)
 
 # Warm, natural neural voice for Teacher Zoe - caring but confident young woman.
